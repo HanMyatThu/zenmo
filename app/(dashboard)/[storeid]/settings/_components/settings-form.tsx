@@ -23,6 +23,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { AlertModal } from "@/components/common/alert-modal";
+import { ApiAlert } from "@/components/common/api-alert";
+import { useOrigin } from "@/hooks/use-origin";
 
 interface SettingsFormProps {
   initialData: store;
@@ -40,6 +42,7 @@ export const SettingsForm = ({ initialData }: SettingsFormProps) => {
 
   const params = useParams();
   const router = useRouter();
+  const origin = useOrigin();
 
   const form = useForm<SettingFormValue>({
     resolver: zodResolver(formSchema),
@@ -118,12 +121,18 @@ export const SettingsForm = ({ initialData }: SettingsFormProps) => {
             type="submit"
             variant="default"
             disabled={loading}
-            className="ml-auto"
+            className="ml-auto mt-2"
           >
             Save changes
           </Button>
         </form>
       </Form>
+      <Separator className="h-1" />
+      <ApiAlert
+        title="NEXT_PUBLIC_API_URL"
+        description={`${origin}/api/${params.storeid}`}
+        variant="public"
+      />
     </>
   );
 };
