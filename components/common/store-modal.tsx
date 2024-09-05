@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import axios from "axios";
+import { toast } from "sonner";
 
 import {
   Dialog,
@@ -44,9 +45,12 @@ export const StoreModal = () => {
     try {
       setLoading(true);
       const response = await axios.post("/api/stores", { name: data.name });
-      console.log(response.data, "response");
+      toast.success("Success");
+      setTimeout(() => {
+        window.location.assign(`/${response.data.id}`);
+      }, 1000);
     } catch (error) {
-      console.log(error, "error");
+      toast.error("Something Went Wrong!");
     } finally {
       setLoading(false);
     }
@@ -94,6 +98,7 @@ export const StoreModal = () => {
                 />
                 <div className="pt-2 space-x-2 flex items-center justify-end">
                   <Button
+                    type="button"
                     disabled={loading}
                     variant="outline"
                     onClick={onClose}
