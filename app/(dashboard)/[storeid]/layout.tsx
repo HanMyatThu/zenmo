@@ -29,10 +29,10 @@ const DashboardLayout = async ({ children, params }: DashboardLayoutProps) => {
     redirect("/");
   }
   return (
-    <>
+    <div>
       <Navbar />
       {children}
-    </>
+    </div>
   );
 };
 
