@@ -1,20 +1,13 @@
 "use client";
 
-import {
-  Bar,
-  BarChart,
-  ResponsiveContainer,
-  XAxis,
-  YAxis,
-} from "recharts";
+import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 
 interface OverviewProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any[];
 }
 
-export const Overview: React.FC<OverviewProps> = ({
-  data,
-}) => {
+export const Overview: React.FC<OverviewProps> = ({ data }) => {
   return (
     <ResponsiveContainer width="100%" height={350}>
       <BarChart data={data}>
@@ -32,11 +25,7 @@ export const Overview: React.FC<OverviewProps> = ({
           axisLine={false}
           tickFormatter={(value) => `$${value}`}
         />
-        <Bar
-          dataKey="total"
-          fill="#BE123C"
-          radius={[4, 4, 0, 0]}
-        />
+        <Bar dataKey="total" fill="#BE123C" radius={[4, 4, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>
   );
