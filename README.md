@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/8294865e-7130-4491-829a-a46d43b3f7ed)## Installation
+## Installation
 
 - Frstly , clone the repository
 
@@ -67,6 +67,7 @@ You can use zenmo app [here](https://zenmo.drazcoding.com)
 
 You can check zenmo store app [here](https://zenmostore.drazcoding.com)
 
+Please read [this](https://github.com/HanMyatThu/zenmo-store) zenmo store repository to create your own ecommerce.
 
 ## Deploy on Vercel
 
