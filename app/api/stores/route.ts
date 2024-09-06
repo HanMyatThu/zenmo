@@ -1,6 +1,7 @@
-import prisma from "@/lib/prisma";
-import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
+import { auth } from "@clerk/nextjs/server";
+
+import prisma from "@/lib/prisma";
 
 export async function POST(req: Request) {
   try {
@@ -23,10 +24,9 @@ export async function POST(req: Request) {
         userId,
       },
     });
-
     return NextResponse.json(store);
-  } catch (error) {
-    console.log("[STORES_POST]", error);
-    return new NextResponse("Internal Error", { status: 500 });
+  } catch (err) {
+    console.log("[STORES_POST]", err);
+    return new NextResponse("Internal error", { status: 500 });
   }
 }

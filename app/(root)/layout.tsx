@@ -24,12 +24,7 @@ const SetUpLayout = async ({ children }: SetUpLayoutProps) => {
     redirect(`/${store.id}`);
   }
 
-  return (
-    <div>
-      hi
-      {children}
-    </div>
-  );
+  return <div>{children}</div>;
 };
 
 export default SetUpLayout;

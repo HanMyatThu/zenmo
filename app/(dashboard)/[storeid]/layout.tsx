@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/navbar";
+import Navbar from "@/components/navbar";
 import prisma from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
@@ -6,31 +6,30 @@ import { redirect } from "next/navigation";
 interface DashboardLayoutProps {
   children: React.ReactNode;
   params: {
-    storeid: string;
+    storeId: string;
   };
 }
 
 const DashboardLayout = async ({ children, params }: DashboardLayoutProps) => {
-  const { storeid } = params;
+  const { storeId } = params;
   const { userId } = auth();
 
-  if (!storeid || !userId) {
+  if (!storeId || !userId) {
     redirect("/sign-in");
   }
 
-  const store = await prisma.store.findFirst({
+  const stores = await prisma.store.findMany({
     where: {
-      id: params.storeid,
       userId,
     },
   });
 
-  if (!store) {
+  if (!stores.length) {
     redirect("/");
   }
   return (
     <div>
-      <Navbar />
+      <Navbar items={stores} />
       {children}
     </div>
   );
