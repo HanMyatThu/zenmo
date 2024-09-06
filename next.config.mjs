@@ -4,7 +4,9 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ["res.cloudinary.com"],
+    remotePatterns: [{
+      hostname: "res.cloudinary.com",
+    }],
   },
 
   async headers() {

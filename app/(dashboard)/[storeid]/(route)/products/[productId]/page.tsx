@@ -16,6 +16,8 @@ const ProductPage = async ({
     },
   });
 
+  console.log(product, "product");
+
   const categories = await prisma.category.findMany({
     where: {
       storeId: params.storeId,
@@ -33,10 +35,6 @@ const ProductPage = async ({
       storeId: params.storeId,
     },
   });
-
-  if (!product) {
-    return null;
-  }
 
   return (
     <div className="flex-col md:ml-56">
