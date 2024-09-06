@@ -2,11 +2,13 @@
   "name": "zenmo-admin-dashboard",
   "version": "0.1.0",
   "private": true,
+  "author": "draz",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@clerk/nextjs": "^5.4.1",
@@ -46,6 +48,7 @@
     "stripe": "^16.10.0",
     "superjson": "^1.13.1",
     "swr": "^2.2.0",
+    "prisma": "^5.19.1",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.23.8",
@@ -59,7 +62,6 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.8",
     "postcss": "^8",
-    "prisma": "^5.19.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
